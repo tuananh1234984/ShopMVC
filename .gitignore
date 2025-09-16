@@ -1,0 +1,53 @@
+# .NET build artifacts
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# Logs
+*.log
+
+# OS files
+[Dd]esktop.ini
+[Tt]humbs.db
+$RECYCLE.BIN/
+.DS_Store
+
+# Others
+*.swp
+*.tmp
+*.bak
+~$*
+
+# Rider/JetBrains
+.idea/
+*.iml
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# IIS Express
+/.vs/hidden/v16/.suo
+
+# Publish output
+**/wwwroot/**/*.map
+**/wwwroot/lib/
+
+# Docker
+**/.docker/*
