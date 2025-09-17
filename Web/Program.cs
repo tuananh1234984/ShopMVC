@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -18,10 +22,24 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
+// Explicit root route for "/"
+app.MapControllerRoute(
+    name: "root",
+    pattern: string.Empty,
+    defaults: new { controller = "Home", action = "Index" }
+);
+
+// Conventional default route and attribute routes
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllers();
+
+// Fallback to Home/Index for any unmatched routes (optional)
+app.MapFallbackToController("Index", "Home");
 
 app.Run();
