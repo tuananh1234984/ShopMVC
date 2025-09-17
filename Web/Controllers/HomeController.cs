@@ -13,14 +13,16 @@ namespace Web.Controllers
             _logger = logger;
         }
 
+        [HttpGet("index.html")]
         public IActionResult Index()
         {
-            return View();
+            return View(); // Resolves to Views/Home/Index.cshtml
         }
 
+        [HttpGet("privacy")]
         public IActionResult Privacy()
         {
-            return View();
+            return View(); // Resolves to Views/Home/Privacy.cshtml
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
